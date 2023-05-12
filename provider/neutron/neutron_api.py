@@ -1507,7 +1507,7 @@ class NeutronApi(object):
             lsp_id = self.ovn_north.get_lsp(lrp=lrp).uuid
             lsp = self.ovn_north.get_lsp(lsp_id=lsp_id)
             if lsp in network.ports:
-                deleted_lsp_id = lsp_id
+                deleted_lsp_id = str(lsp_id)
                 self._delete_router_interface(
                     router_id, lsp_id, lrp=lrp, lr=lr
                 )
